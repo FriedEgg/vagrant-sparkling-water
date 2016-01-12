@@ -1,5 +1,5 @@
-if [ -f /etc/bashrc ]; then
-  . /etc/bashrc
+if [ -f /etc/bash.bashrc ]; then
+  . /etc/bash.bashrc
 fi
 
 [ -z "$PS1" ] && return
@@ -15,17 +15,6 @@ HISTCONTROL=ignoreboth
 HISTSIZE=50000
 HISTFILESIZE=50000
 HISTIGNORE="&:ls:ll:pwd:exit:clear"
-
-alias ls='ls -hF --color=auto'
-alias ll='ls -alF'
-alias la='ls -A'
-alias l1='ls -1'
-alias lh='ls -lah'
-alias l='ls -CF'
-alias du='du -kh'
-alias df='df -kTh'
-alias tree='tree -Csu'
-alias grep='egrep --color=auto'
 
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases

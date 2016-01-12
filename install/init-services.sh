@@ -8,15 +8,13 @@ $HADOOP_PREFIX/bin/hdfs namenode -format myhadoop -force -noninteractive
 
 function startHdfs {
 info "starting hdfs"
-$HADOOP_PREFIX/sbin/hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start namenode
-$HADOOP_PREFIX/sbin/hadoop-daemons.sh --config $HADOOP_CONF_DIR --script hdfs start datanode
+$HADOOP_PREFIX/sbin/start-dfs.sh --config $HADOOP_CONF_DIR
 }
 
 function startYarn {
 info "starting yarn"
 $HADOOP_YARN_HOME/sbin/yarn-daemon.sh --config $HADOOP_CONF_DIR start resourcemanager
-$HADOOP_YARN_HOME/sbin/yarn-daemons.sh --config $HADOOP_CONF_DIR start nodemanager
-$HADOOP_YARN_HOME/sbin/yarn-daemon.sh start proxyserver --config $HADOOP_CONF_DIR
+$HADOOP_YARN_HOME/sbin/yarn-daemon.sh --config $HADOOP_CONF_DIR start nodemanager
 $HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh start historyserver --config $HADOOP_CONF_DIR
 }
 
@@ -35,6 +33,5 @@ $SPARK_HOME/sbin/start-history-server.sh
 formatNameNode
 startHdfs
 startYarn
-startSpark
 createEventLogDir
 startSpark

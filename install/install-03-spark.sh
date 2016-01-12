@@ -4,8 +4,8 @@ source "/vagrant/install/main.sh"
 function installSpark {
 echo
 echo
-info "### Installing Spark"
-info "#####################################################################"
+info "--- Installing Spark"
+info "---------------------------------------------------------------------"
 
 info "Setting up environment variables"
 
@@ -19,7 +19,7 @@ EOF
 if resourceExists $SPARK_ARCHIVE; then
   info "Installing from local file"
 else
-  info "Installing from remote file"
+  warn "Installing from remote file.  This may take some time."
   curl -sS -o /vagrant/resources/$SPARK_ARCHIVE -O -L $SPARK_MIRROR_DOWNLOAD
 fi
 
@@ -33,6 +33,7 @@ mkdir -p $SPARK_CONF_DIR
 
 info "Copying spark configuration files"
 
+cp -f /usr/local/$SPARK_VERSION/conf/* $SPARK_CONF_DIR
 cp -f /vagrant/resources/spark/* $SPARK_CONF_DIR
 
 ln -s /usr/local/$SPARK_VERSION /usr/local/spark

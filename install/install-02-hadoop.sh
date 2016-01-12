@@ -4,8 +4,8 @@ source "/vagrant/install/main.sh"
 function installHadoop {
 echo
 echo
-info "### Installing Hadoop"
-info "#####################################################################"
+info "--- Installing Hadoop"
+info "---------------------------------------------------------------------"
 
 info "Setting up environment variables"
 
@@ -22,7 +22,7 @@ EOF
 if resourceExists $HADOOP_ARCHIVE; then
   info "Installing from local file"
 else
-  info "Installing from remote file"
+  warn "Installing from remote file.  This may take some time."
   curl -sS -o /vagrant/resources/$HADOOP_ARCHIVE -O -L $HADOOP_MIRROR_DOWNLOAD
 fi
 
@@ -42,7 +42,10 @@ mkdir -p /var/hadoop/mr-history/tmp
 
 info "Copying hadoop configuration files"
 
+cp -f /usr/local/$HADOOP_VERSION/etc/hadoop/* $HADOOP_CONF_DIR
 cp -f /vagrant/resources/hadoop/* $HADOOP_CONF_DIR
+mv $HADOOP_CONF_DIR/slaves $HADOOP_CONF_DIR/slaves.example
+echo "master.vm-cluster.com" >> $HADOOP_CONF_DIR/masters
 
 ln -s /usr/local/$HADOOP_VERSION /usr/local/hadoop
 }

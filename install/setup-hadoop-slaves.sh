@@ -10,4 +10,7 @@ while getopts s:t: option; do
   esac
 done
 
+info "--- Configuring hadoop slaves"
+info "---------------------------------------------------------------------"
+
 setupSlaves $HADOOP_CONF_DIR $START $TOTAL_SLAVES

@@ -18,6 +18,13 @@ class baseconfig {
     source => 'puppet:///modules/baseconfig/bashrc';
   }
 
+  file { '/home/vagrant/.bash_aliases':
+    owner => 'vagrant',
+    group => 'vagrant',
+    mode => '0644',
+    source => 'puppet:///modules/baseconfig/bash_aliases';
+  }
+
   file { "/root/.ssh":
     ensure => "directory",
   }

@@ -10,4 +10,7 @@ while getopts s:t: option; do
   esac
 done
 
+info "--- Configuring spark slaves"
+info "---------------------------------------------------------------------"
+
 setupSlaves $SPARK_CONF_DIR $START $TOTAL_SLAVES
