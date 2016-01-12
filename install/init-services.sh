@@ -34,6 +34,7 @@ $SPARK_HOME/sbin/start-history-server.sh
 
 formatNameNode
 startHdfs
+startYarn
 startSpark
 createEventLogDir
 startSpark
