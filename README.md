@@ -33,7 +33,7 @@ You can test if Spark can run on YARN by issuing the following command.  Try NOT
 
 ```
 $SPARK_HOME/bin/spark-submit --class org.apache.spark.examples.SparkPi \
-  --mster yarn \
+  --master yarn \
   --num-executors 10 \
   --executor-cores 2 \
   $SPARK_HOME/lib/spark-examples*.jar \
@@ -43,7 +43,7 @@ $SPARK_HOME/bin/spark-submit --class org.apache.spark.examples.SparkPi \
 ### Test code directly on Spark
 ```
 $SPARK_HOME/bin/spark-submit --class org.apache.spark.examples.SparkPi \
-  --mster spark://master.vm-cluster.com \
+  --master spark://master.vm-cluster.com \
   --num-executors 10 \
   --executor-cores 2 \
   $SPARK_HOME/lib/spark-examples*.jar \
