@@ -16,7 +16,7 @@ export HADOOP_CONF_DIR=${HADOOP_CONF_DIR}
 export YARN_LOG_DIR=\${HADOOP_YARN_HOME}/logs
 export YARN_IDENT_STRING=root
 export HADOOP_MAPRED_IDENT_STRING=root
-PATH=\${HADOOP_PREFIX}/bin:\${HADOOP_PREFIX}/sbin:\${PATH}
+export PATH=\${HADOOP_PREFIX}/bin:\${HADOOP_PREFIX}/sbin:\${PATH}
 EOF
 
 if resourceExists $HADOOP_ARCHIVE; then

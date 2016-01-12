@@ -11,8 +11,9 @@ info "Setting up environment variables"
 
 cat >> /etc/profile.d/spark.sh << EOF
 export SPARK_HOME=/usr/local/spark
+export SPARK_MASTER_IP=master.vm-cluster.com
 export MASTER="yarn-client"
-export PATH=\${SPARK_HOME}/bin:\${SPARK_HOME}/sbin:\${PATH}
+export PATH=\${SPARK_HOME}/bin:\${PATH}
 export SPARK_CONF_DIR=$SPARK_CONF_DIR
 EOF
 
