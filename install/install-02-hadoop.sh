@@ -12,10 +12,10 @@ info "Setting up environment variables"
 cat > /etc/profile.d/hadoop.sh << EOF
 export HADOOP_PREFIX=/usr/local/hadoop
 export HADOOP_YARN_HOME=\${HADOOP_PREFIX}
-export HADOOP_CONF_DIR=${HADOOP_CONF_DIR}
+export HADOOP_CONF_DIR=/etc/hadoop/conf
 export YARN_LOG_DIR=\${HADOOP_YARN_HOME}/logs
-export YARN_IDENT_STRING=vagrant
-export HADOOP_MAPRED_IDENT_STRING=vagrant
+export YARN_IDENT_STRING=hadoop
+export HADOOP_MAPRED_IDENT_STRING=hadoop
 PATH=\${HADOOP_PREFIX}/bin:\${HADOOP_PREFIX}/sbin:\${PATH}
 EOF
 
