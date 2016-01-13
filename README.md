@@ -57,6 +57,13 @@ Start the Spark shell using the following command.  Try NOT to run this command 
 $SPARK_HOME/bin/spark-shell --master spark://master.vm-cluster.com:7077
 ```
 
+### Test Sparklink Water
+You can test if Sparkling Water can run on YARN by issuing the following command.  Try NOT to run this command on the slave nodes.
+
+```
+$SPARKLING_WATER_HOME/bin/run-example DeepLearningDemo
+```
+
 # Web UI
 You can check the following URLs to monitor the Hadoop daemons.
 
