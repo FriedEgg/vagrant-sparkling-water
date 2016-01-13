@@ -19,7 +19,7 @@ else
   curl -sS -o /vagrant/resources/$SPARKLING_WATER_ARCHIVE -O -L $SPARKLING_WATER_MIRROR_DOWNLOAD
 fi
 
-FILE=/vagrant/resources/$SPARKLING_WATER_ARCHIVE
+FILE=/vagrant/resources/$SPARKLING_WATER_VERSION
 info "Extracting Archive $FILE"
 unzip -q -d /usr/local $FILE
 
