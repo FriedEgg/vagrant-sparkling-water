@@ -19,11 +19,11 @@ else
   curl -sS -o /vagrant/resources/$SPARKLING_WATER_ARCHIVE -O -L $SPARKLING_WATER_MIRROR_DOWNLOAD
 fi
 
-FILE=/vagrant/resources/$SPARKLING_WATER_VERSION
+FILE=/vagrant/resources/$SPARKLING_WATER_ARCHIVE
 info "Extracting Archive $FILE"
 unzip -q -d /usr/local $FILE
 
-ln -s /usr/local/$SPARKLING_WATER_ARCHIVE /usr/local/sparkling-water
+ln -s /usr/local/$SPARKLING_WATER_VERSION /usr/local/sparkling-water
 }
 
 installSparklingWater
