@@ -28,16 +28,17 @@ FILE=/vagrant/resources/$SPARK_ARCHIVE
 info "Extracting Archive $FILE"
 tar -xf $FILE -C /usr/local
 
-info "Creating spark directories"
+ln -s /usr/local/$SPARK_VERSION /usr/local/spark
 
-mkdir -p $SPARK_CONF_DIR
+if [ "$SPARK_CONF_DIR" != "/usr/local/$SPARK_VERSION/conf" ] && [ "$SPARK_CONF_DIR" != "/usr/local/spark/conf" ]; then
+  info "Creating spark configuration directories"
+  mkdir -p $SPARK_CONF_DIR
+  info "Copying spark default configuration"
+  cp -f /usr/local/$SPARK_VERSION/conf/* $SPARK_CONF_DIR
+fi
 
 info "Copying spark configuration files"
-
-cp -f /usr/local/$SPARK_VERSION/conf/* $SPARK_CONF_DIR
 cp -f /vagrant/resources/spark/* $SPARK_CONF_DIR
-
-ln -s /usr/local/$SPARK_VERSION /usr/local/spark
 }
 
 installSpark
